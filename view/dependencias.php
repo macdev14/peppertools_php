@@ -7,7 +7,7 @@
 }
 ?></title>
 
-<link rel="shortcut icon" href="images/icon.png" type="image/x-icon">
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 
 <!-- CDN's -->
 

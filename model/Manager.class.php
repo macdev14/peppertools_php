@@ -1,5 +1,5 @@
 <?php 
-
+require_once 'Conexao.class.php';
 class Manager extends Conexao {
 
 	public function insertClient($table, $data){
@@ -18,7 +18,7 @@ class Manager extends Conexao {
     public function listClient($table)
     {
     	$pdo = parent::get_instance();
-    	$sql = "SELECT * FROM $table ORDER BY name ASC";
+    	$sql = "SELECT * FROM $table ORDER BY nome ASC";
     	$statement = $pdo->query($sql);
     	$statement->execute();
 
@@ -28,7 +28,7 @@ class Manager extends Conexao {
     public function deleteClient($table,$id)
     {
        $pdo = parent::get_instance();
-       $sql = "DELETE FROM $table WHERE id = :id";
+       $sql = "DELETE * FROM $table WHERE id = :id";
        $statement = $pdo->prepare($sql);
        $statement->bindValue(':id',$id);
        $statement->execute();
