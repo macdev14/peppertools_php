@@ -1,4 +1,7 @@
-<?php require_once '../controller/activebar.php'; ?>
+<?php require_once '../controller/activebar.php'; 
+ini_set ('default_charset', 'UTF8');
+
+?>
 
 <!---
 <nav class="navbar navbar-inverse">
@@ -23,7 +26,10 @@
 </nav>
 
 -->
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="shortcut icon" href="images/favicon.ico" />
 <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
 
@@ -70,17 +76,17 @@
      <li class="dropdown <?=echoActiveClassIfRequestMatches("produtos")?> ">  
             <a href="produtos">Produtos</a>
             <ul class="dropdown-menu"> 
-                <li><a href="cad_prod">Adicionar</a></li>
-                <li><a href="buscar_prod">Buscar</a></li>
+                <li><a href="cad_est">Adicionar</a></li>
+                <li><a href="buscar_est">Buscar</a></li>
                 <li><a href="estoque">Estoque</a></li>
             </ul>
         </li>
     
- <li class="dropdown <?=echoActiveClassIfRequestMatches("pedidos")?> ">  
-            <a href="pedidos">Pedidos</a>
+ <li class="dropdown <?=echoActiveClassIfRequestMatches("vendas")?> ">  
+            <a href="vendas">Vendas</a>
             <ul class="dropdown-menu"> 
-                <li><a href="cad_ped">Adicionar</a></li>
-                <li><a href="buscar_ped">Buscar</a></li>
+                <li><a href="orcamentos">Orçamentos</a></li>
+                <li><a href="pedidos">Pedidos</a></li>
             </ul>
         </li>
     

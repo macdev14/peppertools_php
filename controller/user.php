@@ -63,12 +63,19 @@ if (isset($_POST['login'])) {
 			array_push($errors, "Username or Password invalid");
 			echo $username.'<br>';
 			echo $result['ds_senha'].'<br>';
+			
 			//echo var_dump($result);
 			//echo var_dump($errors);
-		//	header("location:login.php");
+		  header("location:../view/login");
 		}
 
+	}else{
+
+		$_SESSION['errors'] = $errors;
+		header("location:../view/login");
+
 	}
+	
 }
 
 
@@ -76,95 +83,5 @@ if (isset($_POST['login'])) {
 
 
 
-
-
-//$user = new User();
-
-/* if (isset($_POST['login']){
-if (!empty($_POST['username']) && !empty($_POST['password']) ) {
-
-$db = Conexao::get_instance();
-
-
-	 $username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
-	
-	 $password = filter_var($_POST['password'], FILTER_SANITIZE_STRING);
-
-		$stmt = "SELECT * FROM usuarios WHERE ds_login = :username";
-		$bind = array(':username' => $username);
-        
-         
-
-		$ready = $db->prepare($stmt);
-		$ready->execute($bind);
-
-		$result = $ready->fetch(PDO::FETCH_ASSOC);
-	//	return $result['ds_senha'];
-		
-		if (password_verify($password, $result['ds_senha']))
-		{
-			unset($_SESSION['errors']);
-			$_SESSION['start'] = time(); // Taking now logged in time.
-            // Ending a session in 30 minutes from the starting time.
-        	$_SESSION['expire'] = $_SESSION['start'] + (1 * 30);
-			$_SESSION['username'] = $username;
-			$_SESSION['loggedin'] = TRUE;
-			//$_SESSION['success'] = 'You are now logged in!';
-		header("location:../index");
-
-		}else{
-			array_push($errors, "Username or Password invalid");
-			$_SESSION['errors'] = "Check fields"; 
-
-			header('location: ../view/login');
-		}
-
-
-}else{
-
-	
-	$_SESSION['errors'] = 'Check fields'; 
-	header('location: ../view/login');
-}
-	//header("location:javascript://history.go(-1)");
-
-/
-
-echo $user->login($_POST['username']);
-
-if (isset($_POST['login'], $_POST['username'], $_POST['password']) && !empty($_POST['username']) && !empty($_POST['password'])) {
-
-	# code...
-
-	 $username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
-	
-	 $password = filter_var($_POST['password'], FILTER_SANITIZE_STRING);
-	
-
-	
-
-		
-		if (password_verify( $password, $user->login($username) ) )
-		{
-
-
-		$_SESSION['username'] = $username;
-		$_SESSION['success'] = 'You are now logged in!';
-		echo $_SESSION['success'];
-
-		}
-
-	}
-
-header("location:javascript://history.go(-1)");
-
-//logout
-
-/* if(isset($_GET['logout'])){
-	session_destroy();
-    unset($_SESSION['username']);
-    header('location: login.php');
-
-} */
 
 ?>

@@ -1,4 +1,16 @@
 <?php
+
+//setup php for working with Unicode data
+/*mb_internal_encoding('UTF-8');
+mb_http_output('UTF-8');
+mb_http_input('UTF-8');
+mb_language('uni');
+mb_regex_encoding('UTF-8');
+ob_start('mb_output_handler');
+*/
+if(isset($_SESSION['errors'])){$errors = $_SESSION['errors'];}
+else{$errors=array();}
+
 ini_set('display_startup_errors', true);
 error_reporting(E_ALL);
 ini_set('display_errors', true);
@@ -10,70 +22,6 @@ if (isset($_SESSION['state'], $_SESSION['loggedin']) && !empty($_SESSION['userna
 }
 
 ?>
-<!---
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>Login Form Tutorial</title>
-		<style>
-		.login-form {
-			width: 300px;
-			margin: 0 auto;
-			font-family: Tahoma, Geneva, sans-serif;
-		}
-		.login-form h1 {
-			text-align: center;
-			color: #4d4d4d;
-			font-size: 24px;
-			padding: 20px 0 20px 0;
-		}
-		.login-form input[type="password"],
-		.login-form input[type="text"] {
-			width: 100%;
-			padding: 15px;
-			border: 1px solid #dddddd;
-			margin-bottom: 15px;
-			box-sizing:border-box;
-		}
-		.login-form input[type="submit"] {
-			width: 100%;
-			padding: 15px;
-			background-color: #535b63;
-			border: 0;
-			box-sizing: border-box;
-			cursor: pointer;
-			font-weight: bold;
-			color: #ffffff;
-		}
-
-		.errors{
-			color: red;
-		}
-
-
-		</style>
-	</head>
-	<body>
-		<div class="login-form">
-			<h1>Login Form</h1>
-			<div class="errors">
-				<?php if(isset($_SESSION['errors'])){echo $_SESSION['errors'];}?>
-			</div>
-			<form action="../controller/user" method="post">
-				<input type="text" name="username" placeholder="Username">
-				<input type="password" name="password" placeholder="Password">
-				<input type="submit" name="login" value="Login" onclick="<?php unset($_SESSION['errors']);?>">
-			</form>
-			<label> <a href= "register"> Register </a></label>
-		</div>
-	</body>
-</html>
-
-
-
--->
-
 
 <!DOCTYPE html>
 <html>
@@ -85,7 +33,7 @@ if (isset($_SESSION['state'], $_SESSION['loggedin']) && !empty($_SESSION['userna
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="shortcut icon" href="logo_2.png">
+    <link rel="shortcut icon" href="images/favicon.png">
 
 
     <title>Peppertools - Admin </title>
@@ -124,15 +72,21 @@ if (isset($_SESSION['state'], $_SESSION['loggedin']) && !empty($_SESSION['userna
                     <div class="panel-heading">
                         <h3 class="panel-title">Acesso Restrito</h3>
                         <h4 class="panel-title"><?=date("d/m/Y")?></h4>
+                        <h5 class="panel-title"><?php foreach ($errors as $error): ?>
+                             <p><?php echo $error; ?></p>
+  
+                        <?php endforeach ?>
+
+                    </h5>
                     </div>
                     <div class="panel-body">
                         <form role="form" action="../controller/user" method="post">
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" type="text" name="username" placeholder="Usu&aacute;rio" autofocus autocomplete>
+                                    <input class="form-control" type="text" name="username" placeholder="Usu&aacute;rio" autofocus autocomplete required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" name="password" class="form-control" placeholder="Senha" autocomplete>
+                                    <input type="password" name="password" class="form-control" placeholder="Senha" autocomplete required>
                                 </div>
                                
                                 <!-- Change this to a button or input when using this as a form -->

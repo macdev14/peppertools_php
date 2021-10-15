@@ -1,0 +1,7 @@
+{
+    "require": {
+        "picqer/php-barcode-generator": "^0.3.0",
+        "fpdf/fpdf": "^1.81",
+        "spipu/html2pdf": "^5.2"
+    }
+}

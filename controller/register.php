@@ -87,6 +87,7 @@ if(!empty($_POST['username']) && !empty($_POST['password_1']) && !empty($_POST['
 	}
 
 }
+	header("location:javascript://history.go(-1)");
 }
 
 

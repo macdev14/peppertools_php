@@ -14,7 +14,7 @@ $id = $_POST['id'];
 if (isset($id) && !empty($id) ) {
 	# code...
 $os->updateOS('Cadastro_OS', $update_os, $id);
-header('Location: ../view/page_os.php?client_update');
+header('Location: ../view/os?os_update');
 
 }
 

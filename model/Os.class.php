@@ -48,14 +48,15 @@ public function insertOS($table, $data){
       $pdo = parent::get_instance();
 
      if(isset($id) && !empty($id)){
-      $sql = "SELECT  nome, Id FROM Clientes WHERE Id = :id";
+
+      $sql = "SELECT Cadastro_OS.*, Clientes.nome FROM Cadastro_OS, Clientes WHERE Clientes.ID = Cadastro_OS.Id_Cliente AND Cadastro_OS.Id = :value";
       $stmt = $pdo->prepare($sql);
-      $stmt->bindValue(':id',$id);
+      $stmt->bindValue(':value',$id);
       $stmt->execute();
       $result = $stmt->fetch(PDO::FETCH_ASSOC);
       return $result['nome'];
 
-     }
+     }else{
 
 
     	
@@ -64,6 +65,9 @@ public function insertOS($table, $data){
     	$statement->execute();
 
     	return $statement->fetchAll();
+
+      }
+
     }		
     
 

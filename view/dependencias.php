@@ -1,4 +1,5 @@
-<meta charset="UTF-8">
+<?php   header('Content-Type: text/html; charset=utf-8'); ?>
+<meta http-equiv="Content-Type" content="text/html" charset=utf-8" />
 
 <!-- Titulo e Icone - HEAD -->
 <title>Pimentel Ferramentas <?php if (isset($title) && !empty($title))
@@ -10,7 +11,7 @@
 <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 
 <!-- CDN's -->
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
@@ -55,3 +56,4 @@ h2 {
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/sec.js"></script>

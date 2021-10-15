@@ -13,10 +13,12 @@
     </style>
 
 <link rel="shortcut icon" href="favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 
 <?php 
+   header('Content-Type: text/html; charset=utf-8');
 ini_set('display_startup_errors', true);
 error_reporting(E_ALL);
 ini_set('display_errors', true);
@@ -91,16 +93,17 @@ if (!isset($_SESSION['state']) && empty($_SESSION['state'])) {
      <li class="dropdown <?=echoActiveClassIfRequestMatches("view/produtos")?> ">  
             <a href="view/produtos">Produtos</a>
             <ul class="dropdown-menu"> 
-                <li><a href="cad_prod">Adicionar</a></li>
-                <li><a href="buscar_prod">Buscar</a></li>
+                <li><a href="view/cad_est">Adicionar</a></li>
+                <li><a href="view/buscar_est">Buscar</a></li>
+                <li><a href="view/estoque">Estoque</a></li>
             </ul>
         </li>
     
  <li class="dropdown <?=echoActiveClassIfRequestMatches("view/pedidos")?> ">  
-            <a href="view/pedidos">Pedidos</a>
+            <a href="view/vendas">Vendas</a>
             <ul class="dropdown-menu"> 
-                <li><a href="view/cad_ped">Adicionar</a></li>
-                <li><a href="view/buscar_ped">Buscar</a></li>
+                <li><a href="view/orcamentos">Orçamentos</a></li>
+                <li><a href="view/pedidos">Pedidos</a></li>
             </ul>
         </li>
     
